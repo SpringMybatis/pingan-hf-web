@@ -10,6 +10,7 @@
             <list>
                 <value>classpath:pingan-app.properties</value>
                 <value>classpath:pingan-jdbc.properties</value>
+                <value>classpath:pingan-mail.properties</value>
             </list>
         </property>
     </bean>
