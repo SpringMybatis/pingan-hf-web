@@ -10,6 +10,8 @@
     <import resource="classpath:/spring/applicationContext-common.xml"/>
     <!-- service -->
     <import resource="classpath:/spring/applicationContext-service.xml"/>
+    <!-- dwr -->
+    <import resource="classpath:/spring/applicationContext-dwr.xml"/>
     <!-- dao -->
     <import resource="classpath:/spring/applicationContext-dao.xml"/>
 

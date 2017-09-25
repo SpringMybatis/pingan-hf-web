@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+    
+    <dwr:annotation-config id="dwrAnnotationConfig" /> 
+	<dwr:annotation-scan base-package="com.pingan.hf.web.dwr" scanDataTransferObject="true" scanRemoteProxy="true" />
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="mappings">
+			<props>
+				<prop key="/dwr/**/*">dwrController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<dwr:controller id="dwrController" debug="true" />
+
+	<!-- <dwr:controller id="dwrController" debug="true" />
+	
+	 设置需要dwr转化的实体类，格式为json传输到jsp页面  
+    <dwr:configuration>  
+        <dwr:convert type="bean" class="com.pingan.hf.web.dwr.UserMessage"/>  
+    </dwr:configuration>  
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="mappings">
+			<props>
+				<prop key="/dwr/**/*">dwrController</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<dwr:annotation-scan base-package="com.pingan.hf.web.dwr" scanDataTransferObject="true" scanRemoteProxy="true" />
+	
+	<dwr:annotation-config id="dwrAnnotationConfig" />  -->
+
+</beans>    

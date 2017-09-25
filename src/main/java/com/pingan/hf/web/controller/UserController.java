@@ -1,7 +1,7 @@
 package com.pingan.hf.web.controller;
 
-import com.pingan.hf.web.dto.UserDTO;
-import com.pingan.hf.web.service.UserService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import com.pingan.hf.web.dto.UserDTO;
+import com.pingan.hf.web.dwr.HelloService;
+import com.pingan.hf.web.service.UserService;
 
 /**
  * User: zhongjun
@@ -21,10 +23,14 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private HelloService helloService;
 
     @ResponseBody
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     public List<UserDTO> findUsers(){
+    	helloService.printUser();
         return userService.findUsers();
     }
 
